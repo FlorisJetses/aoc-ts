@@ -12,7 +12,7 @@ export async function readData() {
   const [_, fullPath, dataSet] = process.argv as
     | [string, string, string]
     | [string, string];
-  const puzzle = fullPath.split('/').slice(-2).join('/');
+  const puzzle = fullPath.split('\\').slice(-2).join('/');
   const [day, part] = puzzle
     .split('/')
     .map((x, i) => (i === 0 ? +x.split('-')[1] : x)) as [number, 'a' | 'b'];
