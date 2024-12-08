@@ -26,3 +26,10 @@ function createFileName(day: number, part: 'a' | 'b', dataSet?: string) {
   return join(`day-${day}`, `${part}.data${dataSet ? `.${dataSet}` : ''}.txt`);
 }
 
+export function toMatrix(data: string[]) {
+  return data.map(row => row.replace('\r', '').split('').filter(Boolean));
+}
+
+export function traverseMatrix <T>(matrix: T[][], cb: (val: T, x: number, y: number) => void) {
+  matrix.forEach((row, y) => row.forEach((val, x) => cb(val, x, y)));
+}
