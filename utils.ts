@@ -33,3 +33,9 @@ export function toMatrix(data: string[]) {
 export function traverseMatrix <T>(matrix: T[][], cb: (val: T, x: number, y: number) => void) {
   matrix.forEach((row, y) => row.forEach((val, x) => cb(val, x, y)));
 }
+
+type X = number
+type Y = number
+
+export const returnKey = (x: number, y: number): `${X}-${Y}` => `${x}-${y}`
+export const getCoordinates = (key: string) => key.split('-').map((num) => parseInt(num)) as [number, number]
